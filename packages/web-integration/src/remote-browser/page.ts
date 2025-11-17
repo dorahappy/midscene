@@ -11,11 +11,10 @@ import type {
   Browser as PuppeteerBrowser,
   Page as PuppeteerPage,
 } from 'puppeteer';
-import { WebPage as PlaywrightWebPage } from '../playwright/page';
-import { PuppeteerWebPage } from '../puppeteer/page';
-import type { WebPageOpt } from '../web-element';
 import type { BrowserEngine } from './types';
 import { CdpConnectionError } from './types';
+
+const DEFAULT_TIMEOUT = 30000;
 
 /**
  * Remote Browser Page implementation
@@ -26,7 +25,6 @@ export class RemoteBrowserPage {
   private engine: BrowserEngine;
   private browser: PuppeteerBrowser | PlaywrightBrowser | null = null;
   private page: PuppeteerPage | PlaywrightPage | null = null;
-  private webPage: PuppeteerWebPage | PlaywrightWebPage | null = null;
   private isConnected_ = false;
 
   constructor(cdpWsUrl: string, engine: BrowserEngine) {
@@ -37,32 +35,23 @@ export class RemoteBrowserPage {
   /**
    * Connect to the remote browser via CDP
    */
-  async connect(options?: {
+  async connect(options: {
     connectionTimeout?: number;
-    webPageOpts?: WebPageOpt;
-  }): Promise<PuppeteerWebPage | PlaywrightWebPage> {
+  } = {}): Promise<void> {
+    const { connectionTimeout = DEFAULT_TIMEOUT } = options;
+
     if (this.isConnected_) {
-      if (!this.webPage) {
-        throw new CdpConnectionError('Already connected but webPage is null');
-      }
-      return this.webPage;
+      return;
     }
 
     try {
       if (this.engine === 'puppeteer') {
-        await this.connectPuppeteer(
-          options?.connectionTimeout,
-          options?.webPageOpts,
-        );
+        await this.connectPuppeteer(connectionTimeout);
       } else {
-        await this.connectPlaywright(
-          options?.connectionTimeout,
-          options?.webPageOpts,
-        );
+        await this.connectPlaywright(connectionTimeout);
       }
 
       this.isConnected_ = true;
-      return this.webPage!;
     } catch (error: any) {
       throw new CdpConnectionError(
         `Failed to connect to remote browser: ${error.message}`,
@@ -75,18 +64,24 @@ export class RemoteBrowserPage {
   /**
    * Connect using Puppeteer
    */
-  private async connectPuppeteer(
-    connectionTimeout?: number,
-    opts?: WebPageOpt,
-  ): Promise<void> {
+  private async connectPuppeteer(connectionTimeout: number): Promise<void> {
     // Dynamic import to avoid requiring puppeteer if not used
     const puppeteer = await import('puppeteer');
 
-    // Connect to CDP endpoint
-    this.browser = (await puppeteer.connect({
+    // Connect to CDP endpoint with timeout
+    const connectPromise = puppeteer.connect({
       browserWSEndpoint: this.cdpWsUrl,
-      ...(connectionTimeout ? { timeout: connectionTimeout } : {}),
-    })) as PuppeteerBrowser;
+    });
+
+    // Implement timeout manually
+    const timeoutPromise = new Promise<never>((_, reject) => {
+      setTimeout(() => reject(new Error('Connection timeout')), connectionTimeout);
+    });
+
+    this.browser = (await Promise.race([
+      connectPromise,
+      timeoutPromise,
+    ])) as PuppeteerBrowser;
 
     // Get the default context and first page
     const pages = await this.browser.pages();
@@ -97,24 +92,18 @@ export class RemoteBrowserPage {
       // Use the first existing page
       this.page = pages[0] as PuppeteerPage;
     }
-
-    // Wrap with PuppeteerWebPage
-    this.webPage = new PuppeteerWebPage(this.page, opts);
   }
 
   /**
    * Connect using Playwright
    */
-  private async connectPlaywright(
-    connectionTimeout?: number,
-    opts?: WebPageOpt,
-  ): Promise<void> {
+  private async connectPlaywright(connectionTimeout: number): Promise<void> {
     // Dynamic import to avoid requiring playwright if not used
     const { chromium } = await import('playwright');
 
     // Connect to CDP endpoint
     this.browser = (await chromium.connectOverCDP(this.cdpWsUrl, {
-      ...(connectionTimeout ? { timeout: connectionTimeout } : {}),
+      timeout: connectionTimeout,
     })) as PlaywrightBrowser;
 
     // Get the default context
@@ -136,19 +125,6 @@ export class RemoteBrowserPage {
       // Use the first existing page
       this.page = pages[0] as PlaywrightPage;
     }
-
-    // Wrap with PlaywrightWebPage
-    this.webPage = new PlaywrightWebPage(this.page, opts);
-  }
-
-  /**
-   * Get the wrapped web page
-   */
-  getWebPage(): PuppeteerWebPage | PlaywrightWebPage {
-    if (!this.webPage) {
-      throw new CdpConnectionError('Not connected. Call connect() first.');
-    }
-    return this.webPage;
   }
 
   /**
@@ -204,7 +180,6 @@ export class RemoteBrowserPage {
     }
 
     this.page = null;
-    this.webPage = null;
     this.isConnected_ = false;
   }
 }

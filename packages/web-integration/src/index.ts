@@ -8,5 +8,5 @@ export { PuppeteerAgent } from './puppeteer';
 export { PlaywrightAgent } from './playwright';
 export { StaticPageAgent, StaticPage } from './static';
 export { connectToCdp, RemoteBrowserPage } from './remote-browser';
-export type { BrowserEngine, CdpConnectionOptions } from './remote-browser';
+export type { ConnectToCdpOptions, BrowserEngine } from './remote-browser';
 export { WebPageContextParser } from './web-element';

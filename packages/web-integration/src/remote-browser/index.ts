@@ -5,10 +5,11 @@
 
 // Core connector function
 export { connectToCdp } from './connector';
+export type { ConnectToCdpOptions } from './connector';
 
 // Remote browser page implementation
 export { RemoteBrowserPage } from './page';
 
 // Types
-export type { BrowserEngine, CdpConnectionOptions } from './types';
+export type { BrowserEngine } from './types';
 export { CdpConnectionError } from './types';
