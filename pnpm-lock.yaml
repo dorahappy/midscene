@@ -532,6 +532,58 @@ importers:
         specifier: 3.24.3
         version: 3.24.3
 
+  packages/android-mcp:
+    dependencies:
+      '@silvia-odwyer/photon':
+        specifier: 0.3.3
+        version: 0.3.3
+      '@silvia-odwyer/photon-node':
+        specifier: 0.3.3
+        version: 0.3.3
+      bufferutil:
+        specifier: 4.0.9
+        version: 4.0.9
+      sharp:
+        specifier: ^0.34.3
+        version: 0.34.3
+      utf-8-validate:
+        specifier: 6.0.5
+        version: 6.0.5
+    devDependencies:
+      '@midscene/android':
+        specifier: workspace:*
+        version: link:../android
+      '@midscene/core':
+        specifier: workspace:*
+        version: link:../core
+      '@midscene/shared':
+        specifier: workspace:*
+        version: link:../shared
+      '@modelcontextprotocol/inspector':
+        specifier: ^0.16.3
+        version: 0.16.3(@types/node@18.19.118)(@types/react-dom@19.1.5(@types/react@19.1.5))(@types/react@19.1.5)(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@6.0.5)
+      '@modelcontextprotocol/sdk':
+        specifier: 1.10.2
+        version: 1.10.2
+      '@rslib/core':
+        specifier: ^0.11.2
+        version: 0.11.2(@microsoft/api-extractor@7.52.10(@types/node@18.19.118))(typescript@5.8.3)
+      '@types/node':
+        specifier: ^18.0.0
+        version: 18.19.118
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+      vitest:
+        specifier: 3.0.5
+        version: 3.0.5(@types/debug@4.1.12)(@types/node@18.19.118)(jsdom@26.1.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1)
+      zod:
+        specifier: 3.24.3
+        version: 3.24.3
+
   packages/android-playground:
     dependencies:
       '@inquirer/prompts':
@@ -802,7 +854,59 @@ importers:
         version: 5.8.3
       vitest:
         specifier: 3.0.5
-        version: 3.0.5(@types/debug@4.1.12)(@types/node@18.19.118)(jsdom@26.1.0)(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1)
+        version: 3.0.5(@types/debug@4.1.12)(@types/node@18.19.118)(jsdom@26.1.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1)
+      zod:
+        specifier: 3.24.3
+        version: 3.24.3
+
+  packages/ios-mcp:
+    dependencies:
+      '@silvia-odwyer/photon':
+        specifier: 0.3.3
+        version: 0.3.3
+      '@silvia-odwyer/photon-node':
+        specifier: 0.3.3
+        version: 0.3.3
+      bufferutil:
+        specifier: 4.0.9
+        version: 4.0.9
+      sharp:
+        specifier: ^0.34.3
+        version: 0.34.3
+      utf-8-validate:
+        specifier: 6.0.5
+        version: 6.0.5
+    devDependencies:
+      '@midscene/core':
+        specifier: workspace:*
+        version: link:../core
+      '@midscene/ios':
+        specifier: workspace:*
+        version: link:../ios
+      '@midscene/shared':
+        specifier: workspace:*
+        version: link:../shared
+      '@modelcontextprotocol/inspector':
+        specifier: ^0.16.3
+        version: 0.16.3(@types/node@18.19.118)(@types/react-dom@19.1.5(@types/react@19.1.5))(@types/react@19.1.5)(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@6.0.5)
+      '@modelcontextprotocol/sdk':
+        specifier: 1.10.2
+        version: 1.10.2
+      '@rslib/core':
+        specifier: ^0.11.2
+        version: 0.11.2(@microsoft/api-extractor@7.52.10(@types/node@18.19.118))(typescript@5.8.3)
+      '@types/node':
+        specifier: ^18.0.0
+        version: 18.19.118
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+      vitest:
+        specifier: 3.0.5
+        version: 3.0.5(@types/debug@4.1.12)(@types/node@18.19.118)(jsdom@26.1.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1)
       zod:
         specifier: 3.24.3
         version: 3.24.3
@@ -928,7 +1032,7 @@ importers:
         version: 5.8.3
       vitest:
         specifier: 3.0.5
-        version: 3.0.5(@types/debug@4.1.12)(@types/node@18.19.118)(jsdom@26.1.0)(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1)
+        version: 3.0.5(@types/debug@4.1.12)(@types/node@18.19.118)(jsdom@26.1.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1)
 
   packages/recorder:
     dependencies:
@@ -988,6 +1092,9 @@ importers:
         specifier: 11.1.0
         version: 11.1.0
     devDependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: 1.10.2
+        version: 1.10.2
       '@rslib/core':
         specifier: ^0.11.2
         version: 0.11.2(@microsoft/api-extractor@7.52.10(@types/node@18.19.62))(typescript@5.8.3)
@@ -1005,7 +1112,7 @@ importers:
         version: 16.4.5
       openai:
         specifier: 6.3.0
-        version: 6.3.0(ws@8.18.3)(zod@3.25.76)
+        version: 6.3.0(ws@8.18.3)(zod@3.24.3)
       rimraf:
         specifier: ~3.0.2
         version: 3.0.2
@@ -1015,6 +1122,9 @@ importers:
       vitest:
         specifier: 3.0.5
         version: 3.0.5(@types/debug@4.1.12)(@types/node@18.19.62)(jsdom@26.1.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1)
+      zod:
+        specifier: 3.24.3
+        version: 3.24.3
 
   packages/visualizer:
     dependencies:
@@ -1186,6 +1296,25 @@ importers:
         specifier: 3.0.5
         version: 3.0.5(@types/debug@4.1.12)(@types/node@18.19.62)(jsdom@26.1.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1)
 
+  packages/web-mcp:
+    dependencies:
+      '@midscene/mcp':
+        specifier: workspace:*
+        version: link:../mcp
+    devDependencies:
+      '@rslib/core':
+        specifier: ^0.11.2
+        version: 0.11.2(@microsoft/api-extractor@7.52.10(@types/node@18.19.118))(typescript@5.8.3)
+      '@types/node':
+        specifier: ^18.0.0
+        version: 18.19.118
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+      vitest:
+        specifier: 3.0.5
+        version: 3.0.5(@types/debug@4.1.12)(@types/node@18.19.118)(jsdom@26.1.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1)
+
   packages/webdriver:
     dependencies:
       '@midscene/shared':
@@ -1206,7 +1335,7 @@ importers:
         version: 5.8.3
       vitest:
         specifier: 3.0.5
-        version: 3.0.5(@types/debug@4.1.12)(@types/node@18.19.118)(jsdom@26.1.0)(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1)
+        version: 3.0.5(@types/debug@4.1.12)(@types/node@18.19.118)(jsdom@26.1.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1)
 
 packages:
 
@@ -5877,17 +6006,9 @@ packages:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
     engines: {node: '>=0.8.x'}
 
-  eventsource-parser@3.0.1:
-    resolution: {integrity: sha512-VARTJ9CYeuQYb0pZEPbzi740OWFgpHe7AYJ2WFZVnUDUQp5Dk2yJUgF36YsZ81cOyxT0QxmXD2EQpapAouzWVA==}
-    engines: {node: '>=18.0.0'}
-
   eventsource-parser@3.0.3:
     resolution: {integrity: sha512-nVpZkTMM9rF6AQ9gPJpFsNAMt48wIzB5TQgiTLdHiuO8XEDhUgZEhqKlZWXbIzo9VmJ/HvysHqEaVeD5v9TPvA==}
     engines: {node: '>=20.0.0'}
-
-  eventsource@3.0.6:
-    resolution: {integrity: sha512-l19WpE2m9hSuyP06+FbuUUf1G+R0SFLrtQfbRb9PRr+oimOfxQhgGCbVaXg5IvZyyTThJsxh6L/srkMiCeBPDA==}
-    engines: {node: '>=18.0.0'}
 
   eventsource@3.0.7:
     resolution: {integrity: sha512-CRT1WTyuQoD771GW56XEZFQ/ZoSfWid1alKGDYMmkt2yl8UXrVR4pspqWNEcqKvVIzg6PAltWjxcSSPrboA4iA==}
@@ -5914,12 +6035,6 @@ packages:
   expect-type@1.2.1:
     resolution: {integrity: sha512-/kP8CAwxzLVEeFrMm4kMmy4CCDlpipyA7MYLVrdJIkV0fYF0UaigQHRsxHiuY/GEea+bh4KSv3TIlgr+2UL6bw==}
     engines: {node: '>=12.0.0'}
-
-  express-rate-limit@7.5.0:
-    resolution: {integrity: sha512-eB5zbQh5h+VenMPM3fh+nw1YExi5nMr6HUCR62ELSP11huvxm/Uir1H1QEyTkk5QX6A58pX6NmaTMceKZ0Eodg==}
-    engines: {node: '>= 16'}
-    peerDependencies:
-      express: ^4.11 || 5 || ^5.0.0-beta.1
 
   express-rate-limit@7.5.1:
     resolution: {integrity: sha512-7iN8iPMDzOMHPUYllBEsQdWVB6fPDMPqwjBaFrgr4Jgr/+okjvzAy+UHlYYL/Vs0OsOrMkwS6PJDkFlJwoxUnw==}
@@ -10565,11 +10680,6 @@ packages:
     resolution: {integrity: sha512-zK7YHHz4ZXpW89AHXUPbQVGKI7uvkd3hzusTdotCg1UxyaVtg0zFJSTfW/Dq5f7OBBVnq6cZIaC8Ti4hb6dtCA==}
     engines: {node: '>= 14'}
 
-  zod-to-json-schema@3.24.5:
-    resolution: {integrity: sha512-/AuWwMP+YqiPbsJx5D6TfgRTc4kTLjsh5SOcd4bLsfUg2RcEXrFMJl1DGgdHy2aCfsIA/cr/1JM0xcB2GZji8g==}
-    peerDependencies:
-      zod: ^3.24.1
-
   zod-to-json-schema@3.24.6:
     resolution: {integrity: sha512-h/z3PKvcTcTetyjl1fkj79MHNEjm+HpD6NXheWjzOekY7kV+lwDYnHw+ivHkijnCSMz1yJaWBD9vu/Fcmk+vEg==}
     peerDependencies:
@@ -12413,6 +12523,30 @@ snapshots:
       - supports-color
       - utf-8-validate
 
+  '@modelcontextprotocol/inspector@0.16.3(@types/node@18.19.118)(@types/react-dom@19.1.5(@types/react@19.1.5))(@types/react@19.1.5)(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@6.0.5)':
+    dependencies:
+      '@modelcontextprotocol/inspector-cli': 0.16.3
+      '@modelcontextprotocol/inspector-client': 0.16.3(@types/react-dom@19.1.5(@types/react@19.1.5))(@types/react@19.1.5)
+      '@modelcontextprotocol/inspector-server': 0.16.3(bufferutil@4.0.9)(utf-8-validate@6.0.5)
+      '@modelcontextprotocol/sdk': 1.17.2
+      concurrently: 9.2.0
+      open: 10.2.0
+      shell-quote: 1.8.3
+      spawn-rx: 5.1.2
+      ts-node: 10.9.2(@types/node@18.19.118)(typescript@5.8.3)
+      zod: 3.25.76
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+      - '@types/node'
+      - '@types/react'
+      - '@types/react-dom'
+      - bufferutil
+      - supports-color
+      - tailwindcss
+      - typescript
+      - utf-8-validate
+
   '@modelcontextprotocol/inspector@0.16.3(@types/node@18.19.62)(@types/react-dom@19.1.5(@types/react@19.1.5))(@types/react@19.1.5)(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@6.0.5)':
     dependencies:
       '@modelcontextprotocol/inspector-cli': 0.16.3
@@ -12442,13 +12576,13 @@ snapshots:
       content-type: 1.0.5
       cors: 2.8.5
       cross-spawn: 7.0.6
-      eventsource: 3.0.6
+      eventsource: 3.0.7
       express: 5.1.0
-      express-rate-limit: 7.5.0(express@5.1.0)
+      express-rate-limit: 7.5.1(express@5.1.0)
       pkce-challenge: 5.0.0
       raw-body: 3.0.0
       zod: 3.24.3
-      zod-to-json-schema: 3.24.5(zod@3.24.3)
+      zod-to-json-schema: 3.24.6(zod@3.24.3)
     transitivePeerDependencies:
       - supports-color
 
@@ -16337,13 +16471,7 @@ snapshots:
 
   events@3.3.0: {}
 
-  eventsource-parser@3.0.1: {}
-
   eventsource-parser@3.0.3: {}
-
-  eventsource@3.0.6:
-    dependencies:
-      eventsource-parser: 3.0.1
 
   eventsource@3.0.7:
     dependencies:
@@ -16388,10 +16516,6 @@ snapshots:
       homedir-polyfill: 1.0.3
 
   expect-type@1.2.1: {}
-
-  express-rate-limit@7.5.0(express@5.1.0):
-    dependencies:
-      express: 5.1.0
 
   express-rate-limit@7.5.1(express@5.1.0):
     dependencies:
@@ -16662,7 +16786,7 @@ snapshots:
 
   foreground-child@3.3.0:
     dependencies:
-      cross-spawn: 7.0.3
+      cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
   form-data@4.0.1:
@@ -21131,6 +21255,24 @@ snapshots:
     optionalDependencies:
       '@rspack/core': 1.6.5(@swc/helpers@0.5.17)
 
+  ts-node@10.9.2(@types/node@18.19.118)(typescript@5.8.3):
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.11
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 18.19.118
+      acorn: 8.15.0
+      acorn-walk: 8.3.4
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.8.3
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+
   ts-node@10.9.2(@types/node@18.19.62)(typescript@5.8.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
@@ -21530,7 +21672,7 @@ snapshots:
       sass-embedded: 1.86.3
       terser: 5.43.1
 
-  vitest@3.0.5(@types/debug@4.1.12)(@types/node@18.19.118)(jsdom@26.1.0)(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1):
+  vitest@3.0.5(@types/debug@4.1.12)(@types/node@18.19.118)(jsdom@26.1.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1):
     dependencies:
       '@vitest/expect': 3.0.5
       '@vitest/mocker': 3.0.5(vite@5.4.10(@types/node@18.19.118)(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.86.3)(terser@5.43.1))
@@ -22025,10 +22167,6 @@ snapshots:
       archiver-utils: 5.0.2
       compress-commons: 6.0.2
       readable-stream: 4.7.0
-
-  zod-to-json-schema@3.24.5(zod@3.24.3):
-    dependencies:
-      zod: 3.24.3
 
   zod-to-json-schema@3.24.6(zod@3.24.3):
     dependencies:
